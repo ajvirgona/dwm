@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=DWM
+Comment=Start Dynamic Window Manager
+Exec=dwm_start
+Type=Application
