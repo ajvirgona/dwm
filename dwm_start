@@ -16,9 +16,11 @@ while true; do
     else
         xsetroot -name "$(date +'%a %e %b %R')"
     fi
-    sleep 2
+    sleep 5
 done &
 
 # Finally start the dynamic window manager
-exec dwm
+while true; do
+    dwm 2> ~/.dwm.log
+done
 
