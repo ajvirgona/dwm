@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
@@ -97,6 +98,9 @@ static const char *slock_cmd[] = { "slock", NULL };
 //static const char *zlaunch_cmd[] = { "zlaunch", NULL };
 static const char *kill_dwm_cmd[] = { "killall dwm_start", NULL };
 static const char *all_displays_cmd[] = { "all_displays", NULL };
+static const char *up_vol[] = { "pactl", "set-sink-volume", "0", "+5%", "notify-send", NULL };
+static const char *down_vol[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
+static const char *mute_vol[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -138,8 +142,11 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_r,      quit,           {0} },
-	{ MODKEY|ShiftMask,             XK_q,      spawn,           {.v = kill_dwm_cmd } },
-	{ MODKEY|ShiftMask,             XK_d,      spawn,           {.v = all_displays_cmd } },
+	{ MODKEY|ShiftMask,             XK_q,      spawn,          {.v = kill_dwm_cmd } },
+	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = all_displays_cmd } },
+	{ 0,         XF86XK_AudioLowerVolume,      spawn,          {.v = down_vol } },
+	{ 0,         XF86XK_AudioRaiseVolume,      spawn,          {.v = up_vol } },
+	{ 0,         XF86XK_AudioMute,      spawn,          {.v = mute_vol } },
 };
 
 /* button definitions */

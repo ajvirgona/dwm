@@ -8,16 +8,9 @@ if [ -f $HOME/.fehbg ]; then
     $HOME/.fehbg
 fi
 
-# Background loop to update status bar
-# Will use output of ~/.dwm_status script if present
-while true; do
-    if [ -f $HOME/.dwm_status ]; then
-        xsetroot -name "$($HOME/.dwm_status)"
-    else
-        xsetroot -name "$(date +'%a %e %b %R')"
-    fi
-    sleep 5
-done &
+# Replace notification-daemon with statnot
+killall notification-daemon >/dev/null 2>&1
+statnot &
 
 # Finally start the dynamic window manager
 while true; do
