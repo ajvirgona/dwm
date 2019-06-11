@@ -64,9 +64,13 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ NULL,          "Mail",       NULL,       1 << 7,       0,           -1 },
-	{ NULL,          "tsurf",       NULL,       1 << 1,       0,           -1 },
+	/* class  instance                                title  tags mask  isfloating   monitor */
+	{  NULL,  "Mail",                                 NULL,  1 << 7,    0,           -1 },
+	{  NULL,  "mailspring",                           NULL,  1 << 7,    0,           -1 },
+	{  NULL,  "tsurf",                                NULL,  1 << 1,    0,           -1 },
+	{  NULL,  "google-chrome",                        NULL,  1 << 1,    0,           -1 },
+	{  NULL,  "crx_ojcflmmmcfpacggndoaaflkmcoblhnbh", NULL,  1 << 6,    0,           -1 }, //wunderlist
+	{  NULL,  NULL,                                   "htop",1 << 8,    0,           -1 }, 
 };
 
 /* layout(s) */
