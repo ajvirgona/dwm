@@ -98,7 +98,7 @@ static const char *slock_cmd[] = { "slock", NULL };
 //static const char *zlaunch_cmd[] = { "zlaunch", NULL };
 static const char *kill_dwm_cmd[] = { "killall dwm_start", NULL };
 static const char *all_displays_cmd[] = { "all_displays", NULL };
-static const char *up_vol[] = { "pactl", "set-sink-volume", "0", "+5%", "notify-send", NULL };
+static const char *up_vol[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
 static const char *down_vol[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
 static const char *mute_vol[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
 
