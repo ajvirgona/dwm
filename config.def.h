@@ -14,16 +14,21 @@ static const char *fonts[] = {
     "Roboto Mono for Powerline:size=12"
 };
 static const char dmenufont[]       = "Roboto Mono for Powerline:size=12";
+//static const char dmenufont[]       = "Terminess Powerline:size=14";
 static const char col_gray1[]       = "#111111";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_blue_gray[]   = "#114455";
+static const char col_blue_gray[]   = "#18232A";
+static const char col_blue_mid[]   =  "#0A354D";
 static const char col_cyan[]        = "#00aaee";
+static const char col_orange[]      = "#B66011";
+static const char col_black[]       = "#000000";
+static const char col_white[]       = "#FFFFFF";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray4, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_blue_gray,  col_cyan  },
+	[SchemeNorm] = { col_white, col_blue_gray, col_gray2 },
+	[SchemeSel]  = { col_white, col_blue_mid,  col_orange  },
 };
 
 #define fa_mail ""
@@ -70,6 +75,7 @@ static const Rule rules[] = {
 	{  NULL,  "tsurf",                                NULL,  1 << 1,    0,           -1 },
 	{  NULL,  "google-chrome",                        NULL,  1 << 1,    0,           -1 },
 	{  NULL,  "crx_ojcflmmmcfpacggndoaaflkmcoblhnbh", NULL,  1 << 6,    0,           -1 }, //wunderlist
+	{  NULL,  "gnome-calendar", NULL,  1 << 6,    0,           -1 },
 	{  NULL,  NULL,                                   "htop",1 << 8,    0,           -1 }, 
 };
 
@@ -99,7 +105,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_blue_gray, "-sf", col_gray4, NULL };
-static const char *term_cmd[]  = { "st", NULL };
+static const char *term_cmd[]  = { "st", "-e", "tmux" };
 static const char *slock_cmd[] = { "slock", NULL };
 //static const char *zlaunch_cmd[] = { "zlaunch", NULL };
 static const char *kill_dwm_cmd[] = { "killall dwm_start", NULL };
